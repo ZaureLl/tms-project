@@ -1,0 +1,28 @@
+@import "../../assets/colors.scss";
+
+.userMenuWrapper {
+    display: inline-block;
+}
+
+.userMenuInner {
+    display: flex;
+    align-items: center;
+    background-color: $primary;
+    color: $white;
+    font-weight: 600;
+    font-size: 16px;
+    height: 84px;
+    padding: 0px 32px;
+}
+
+.initials {
+    height: 48px;
+    width: 48px;
+    background-color: $primary-secondary;
+    border-radius: 2px;
+    line-height: 48px;
+}
+
+.fullName {
+    margin-left: 16px;
+}
