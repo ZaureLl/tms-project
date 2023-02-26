@@ -10,6 +10,8 @@ import Card from './components/Card';
 import { CardSize } from './components/Card/types';
 import styles from "./App.module.scss";
 import Input from './components/Input/Input';
+import BurgerMenu from './components/BurgerMenu';
+
 
 const MOCK_CARD = {
   id: 0,
@@ -25,6 +27,10 @@ const MOCK_CARD = {
 const App = () => {
   return (
     <div className="App">
+      <div>
+        <BurgerMenu />
+
+      </div>
       <div>
         <Input title={"text"} placeholder={"ss"} />
         <Input title={"text"} placeholder={"ss"} disabled={true} />
