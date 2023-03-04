@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Title from './components/Title';
 import Button from "./components/Button"
@@ -12,6 +10,9 @@ import styles from "./App.module.scss";
 import Input from './components/Input/Input';
 import BurgerMenu from './components/BurgerMenu';
 import Content from "./components/Pages/Content";
+import SignIn from './components/Pages/SignIn';
+import Success from './components/Pages/Success';
+
 
 
 const MOCK_CARD = {
@@ -34,10 +35,12 @@ const Content_Card = {
 const App = () => {
   return (
     <div className="App">
-
+      <SignIn />
+      <Success />
       <div>
         <BurgerMenu />
       </div>
+      {/* <Home /> */}
       <Content title={Content_Card.title} img={Content_Card.img} text={Content_Card.text} />
       <div>
         <Input title={"text"} placeholder={"ss"} />
