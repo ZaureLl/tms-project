@@ -3,4 +3,6 @@ export type InputProps = {
     placeholder: string;
     disabled?: boolean;
     errorText?: boolean;
+    type?: "password" | "text" | "number" | "email" | "tel";
+    className?: string;
 };
