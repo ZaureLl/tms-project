@@ -1,0 +1,68 @@
+@import "src/assets/colors";
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 72px 0;
+    border-bottom: 2px solid $medium;
+}
+
+.breadcrumbs {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    gap: 8px;
+
+    div {
+        display: inline-block;
+        padding: 0 8px;
+        color: $gray;
+
+        &:first-child {
+            padding-left: 0px;
+            border-right: 2px solid $gray;
+            color: $secondary;
+        }
+    }
+}
+
+.imgWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    max-width: 992px;
+}
+
+.textBtnWrapper {
+    margin: 0 auto;
+}
+
+.textWrapper {
+    max-width: 920px;
+    line-height: 32px;
+    padding-bottom: 48px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 920px;
+}
+
+.likesWrapper {
+    display: flex;
+    gap: 6px
+}
+
+.BookmarkIcon {
+    display: flex;
+
+    span {
+        margin-left: 14px;
+    }
+}

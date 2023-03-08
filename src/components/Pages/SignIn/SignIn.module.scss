@@ -1,0 +1,41 @@
+@import "../../../assets/colors.scss";
+
+.pageContanier {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.formWrapper {
+    margin: 72px 0 128px 0;
+
+    &:last-child {
+        margin-top: 78px;
+    }
+}
+
+.formInput {
+    padding: 24px 40px 40px;
+    border: 1px solid $medium;
+    max-width: 624px;
+    margin: 0 auto;
+}
+
+.email {
+    margin-bottom: 40px;
+}
+
+.forgot {
+    margin: 16px 0 48px 0;
+}
+
+.bottomText {
+    margin-top: 24px;
+    color: $gray;
+    text-align: center;
+    font-weight: 500;
+
+    a {
+        text-decoration: none;
+        color: $primary;
+    }
+}
