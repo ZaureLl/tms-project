@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../../Button";
 import { ButtonType } from "../../../Button";
-import { BurgerMenuIcon, CloseIcon } from "../../../../assets/icons";
+import { BurgerMenuIcon, CloseIcon, UserIcon } from "../../../../assets/icons";
 import UserMenu from "../../../UserMenu";
 import ThemeSwitcher from "../../../../components/ThemeSwitcher";
 import { RoutesList } from "../../Routers";
@@ -15,6 +15,7 @@ const Header = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const isLoggedIn = true;
 
     const onClickMenuButton = () => {
         setOpened(!isOpened);
@@ -30,12 +31,16 @@ const Header = () => {
                 title: "Home",
                 key: RoutesList.Home,
             },
-            {
-                title: "Add Post",
-                key: RoutesList.AddPost,
-            },
+            ...(!isLoggedIn
+                ? []
+                : [
+                    {
+                        title: "Add Post",
+                        key: RoutesList.AddPost,
+                    },
+                ]),
         ],
-        []
+        [isLoggedIn]
     );
 
     return (
@@ -47,12 +52,21 @@ const Header = () => {
                     type={ButtonType.Primary}
                     className={styles.button}
                 />
-                <UserMenu username={"Artem Malkin"} />
+                {isLoggedIn ? (
+                    <UserMenu username={"Artem Malkin"} />
+                ) : (
+                    <Button
+                        title={<UserIcon />}
+                        onClick={onAuthButtonClick}
+                        type={ButtonType.Primary}
+                        className={styles.button}
+                    />
+                )}
             </div>
             {isOpened && (
                 <div className={styles.menuContainer}>
                     <div className={styles.actionsContainer}>
-                        <UserMenu username={"Artem Malkin"} />
+                        {isLoggedIn && <UserMenu username={"Artem Malkin"} />}
                         {navButtonsList.map(({ key, title }) => {
                             return (
                                 <NavLink
@@ -70,8 +84,8 @@ const Header = () => {
                     <div>
                         <ThemeSwitcher />
                         <Button
-                            title={"Sign In"}
-                            onClick={onAuthButtonClick}
+                            title={isLoggedIn ? "Log out" : "Sign In"}
+                            onClick={isLoggedIn ? () => { } : onAuthButtonClick}
                             type={ButtonType.Secondary}
                             className={styles.authButton}
                         />

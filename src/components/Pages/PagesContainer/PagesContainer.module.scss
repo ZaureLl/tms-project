@@ -5,7 +5,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+
+
     background-color: $extra-light;
 }
 
@@ -29,6 +30,8 @@
     display: flex;
     justify-content: space-between;
     border-top: 1px solid $gray;
+
+
 
     div {
         color: $gray;

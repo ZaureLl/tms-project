@@ -1,12 +1,13 @@
 @import "../../../assets/colors.scss";
 
 .pageContanier {
-    max-width: 1120px;
+
     margin: 0 auto;
 }
 
 .formWrapper {
     margin: 72px 0 128px 0;
+    max-width: 1120px;
 
     &:last-child {
         margin-top: 78px;
@@ -16,7 +17,7 @@
 .formInput {
     padding: 24px 40px 40px;
     border: 1px solid $medium;
-    max-width: 624px;
+    width: 624px;
     margin: 0 auto;
 }
 
