@@ -10,12 +10,15 @@ import { RoutesList } from "../../Routers";
 import styles from "./Header.module.scss";
 import classNames from "classnames";
 
+
 const Header = () => {
     const [isOpened, setOpened] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
     const isLoggedIn = true;
+
+
 
     const onClickMenuButton = () => {
         setOpened(!isOpened);

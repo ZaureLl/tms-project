@@ -3,6 +3,10 @@ import { CardProps, CardSize } from "./types";
 import styles from "./Card.module.scss";
 import { BookmarkIcon, DislikeIkon, LikeIkon, MoreIcon } from "../../assets/icons";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { savePost } from "../Pages/redux/reducers/savedPostSlice";
+
+
 
 
 const Card: FC<CardProps> = ({ card, size }) => {
@@ -10,6 +14,8 @@ const Card: FC<CardProps> = ({ card, size }) => {
 
     const isMedium = size === CardSize.Medium;
     const isSmall = size === CardSize.Small;
+
+    const dispatch = useDispatch();
 
     return (
         <div
@@ -58,7 +64,7 @@ const Card: FC<CardProps> = ({ card, size }) => {
                     <div>
                         <BookmarkIcon />
                     </div>
-                    <div>
+                    <div onClick={() => { dispatch(savePost(card)) }} >
                         <MoreIcon />
                     </div>
                 </div>

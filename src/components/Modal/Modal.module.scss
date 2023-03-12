@@ -1,0 +1,29 @@
+@import "../../assets/colors.scss";
+
+.modalContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #26222F80;
+    display: flex;
+}
+
+.modal {
+    margin: auto;
+    background-color: $white;
+    max-width: 886px;
+    max-height: 588px;
+    padding: 17px 21px 55px 74px;
+}
+
+.iconsWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.iconContainer {
+    cursor: pointer;
+}

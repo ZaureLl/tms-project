@@ -6,6 +6,10 @@ import CardsList from "../../CardsList";
 import Card from "../../Card";
 import { CardType } from "../../Card";
 import Tabs from "../../Tabs";
+import Modal from "../../Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { SavedPostSelectors } from "../redux/reducers/savedPostSlice";
+import { savePost } from "../redux/reducers/savedPostSlice";
 
 const MOCK_ARRAY = [
     {
@@ -154,6 +158,7 @@ const MOCK_ARRAY = [
     },
 ];
 
+
 const Home = () => {
     const [cardsList, setCardsList] = useState<CardType[]>([]);
 
@@ -161,11 +166,24 @@ const Home = () => {
         setCardsList(MOCK_ARRAY);
     }, [MOCK_ARRAY]);
 
+    const isModalVisible = useSelector(SavedPostSelectors.getVisibleSelectedModal)
+    const savedPost = useSelector(SavedPostSelectors.getSelectedPost)
+    const showModal = savedPost && isModalVisible;
+    const dispatch = useDispatch();
+    const onClose = () => {
+        dispatch(savePost(null));
+    }
+
     return (
         <div>
             <Title titleText={"Blog"} />
             <Tabs />
             <CardsList cardsList={cardsList} />
+            {showModal ? (
+                <Modal post={savedPost} onClose={onClose} />
+            ) : (
+                <></>
+            )}
         </div>
     );
 };
