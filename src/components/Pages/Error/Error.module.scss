@@ -1,0 +1,20 @@
+@import "../../../assets/colors.scss";
+
+.contanier {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+
+    position: relative;
+}
+
+.nameOfError {
+    font-weight: bold;
+    font-size: 90px;
+    color: $gray;
+}
+
+.text {}
+
+.btn {}

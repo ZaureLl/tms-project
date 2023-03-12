@@ -1,17 +1,10 @@
+import React, { useState } from "react";
 import './App.css';
-import Title from './components/Title';
-import Button from "./components/Button"
-import { ButtonType } from './components/Button/Button';
-import UserMenu from './components/UserMenu';
-import Calc from './components/calc';
-import Card from './components/Card';
-import { CardSize } from './components/Card/types';
-import styles from "./App.module.scss";
-import Input from './components/Input/Input';
-import BurgerMenu from './components/BurgerMenu';
-import Content from "./components/Pages/Content";
-import SignIn from './components/Pages/SignIn';
-import Success from './components/Pages/Success';
+import ThemeProvider from './context/Theme/Provider';
+import { Theme } from './context/Theme/Context';
+import Router from "./components/Pages/Routers";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { changeTheme, ThemeSelectors } from "./components/Pages/redux/reducers/themeSlice";
 
 
 
@@ -33,43 +26,18 @@ const Content_Card = {
 };
 
 const App = () => {
-  return (
-    <div className="App">
-      <SignIn />
-      <Success />
-      <div>
-        <BurgerMenu />
-      </div>
-      {/* <Home /> */}
-      <Content title={Content_Card.title} img={Content_Card.img} text={Content_Card.text} />
-      <div>
-        <Input title={"text"} placeholder={"ss"} />
-        <Input title={"text"} placeholder={"ss"} disabled={true} />
-        <Input title={"text"} placeholder={"ss"} errorText={true} />
-      </div>
-      <div className="padding"></div>
-      <div className='UserMenu'>
-        <UserMenu username="Daria Shpak" />
-      </div>
-      <div className='Title'>
-        <Title titleText="Blog" />
-      </div>
-      <div className='Buttons'>
-        <Button title={"Primary"} type={ButtonType.Primary} onClick={() => { }} />
-        <Button title={"Secondary"} type={ButtonType.Secondary} onClick={() => { }} />
-        <Button title={"Error"} type={ButtonType.Error} onClick={() => { }} />
-      </div>
-      <div className={styles.contanier}>
-        <Card card={MOCK_CARD} size={CardSize.Large} />
-        <Card card={MOCK_CARD} size={CardSize.Medium} />
-        <Card card={MOCK_CARD} size={CardSize.Small} />
-      </div>
-      <div>
-        <Calc />
-      </div>
-    </div>
+  const dispatch = useDispatch();
+  const theme = useSelector(ThemeSelectors.getThemeValue);
 
+  const onChangeTheme = (value: Theme) => {
+    dispatch(changeTheme(value));
+  };
+
+  return (
+    <ThemeProvider theme={theme} onChangeTheme={onChangeTheme}>
+      <Router />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

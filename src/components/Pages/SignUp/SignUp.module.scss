@@ -1,13 +1,12 @@
 @import "../../../assets/colors.scss";
 
 .pageContanier {
-
+    max-width: 1120px;
     margin: 0 auto;
 }
 
 .formWrapper {
     margin: 72px 0 128px 0;
-    max-width: 1120px;
 
     &:last-child {
         margin-top: 78px;
@@ -17,16 +16,13 @@
 .formInput {
     padding: 24px 40px 40px;
     border: 1px solid $medium;
-    width: 624px;
+    max-width: 624px;
     margin: 0 auto;
+    width: 624px;
 }
 
-.email {
-    margin-bottom: 40px;
-}
-
-.forgot {
-    margin: 16px 0 48px 0;
+.bottomBTn {
+    margin-bottom: 48px;
 }
 
 .bottomText {
